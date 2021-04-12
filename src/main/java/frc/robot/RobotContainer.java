@@ -13,6 +13,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.robot.subsystems.Drive;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.Constants.OIConstants;
+import frc.robot.commands.InvertDrive;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -27,7 +30,9 @@ public class RobotContainer {
 
   private final Drive m_tankDrive = new Drive();
 
-  private Joystick m_joystick = new Joystick(Constants.OIConstants.JOYSTICK);
+  private final InvertDrive m_invertDrive = new InvertDrive(m_tankDrive);
+
+  private Joystick m_joystick = new Joystick(OIConstants.JOYSTICK);
 
 
 
@@ -56,6 +61,6 @@ public class RobotContainer {
     // CREATIONN AND BINDING OF THE INVERTDRIVE BUTTON
 
     // new JoystickButton(m_joystick, 1).whenPressed(command);
-
+    new JoystickButton(m_joystick, OIConstants.SWITCH_BUTTON).whenPressed(m_invertDrive);
   }
 }
