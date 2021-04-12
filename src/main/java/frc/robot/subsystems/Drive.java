@@ -20,12 +20,23 @@ public class Drive extends SubsystemBase {
 
     private final DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors, m_rightMotors);
 
-    public Drive(){
+    private static boolean DIRECTION;
 
+    public Drive(){
+        DIRECTION = true;
     }
-    
+
+    public void toggleDirection(){
+        DIRECTION = !DIRECTION;
+    }
+
+    public boolean getDirection(){
+        return DIRECTION;
+    }
+
     public void tankDrive(double leftSpeed, double rightSpeed){
-        m_drive.tankDrive(leftSpeed, rightSpeed);
+        final int dir  = DIRECTION ? 1:-1;
+        m_drive.tankDrive(leftSpeed * dir, rightSpeed * dir);
     }
 
     @Override
