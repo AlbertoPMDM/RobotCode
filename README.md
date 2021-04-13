@@ -16,6 +16,8 @@
 
 ## Based on what
 
-<b>Based on the robot from team 1717</b>
+<b>Based on the robot from team 1717 for the shooter, and on another model for the intake</b>
 
 <img src="https://i.ytimg.com/vi/rM80DE3dBZk/maxresdefault.jpg"/>
+
+<img src="img.jpg"/>
