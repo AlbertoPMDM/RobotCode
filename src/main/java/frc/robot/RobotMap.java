@@ -8,6 +8,11 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 class RobotMap {
 
+    // INITIALIZE PDP
+    public static PowerDistributionPanel pdp;
+
+    //////////////////////////////// DRIVE ////////////////////////////////
+
     // INITIALIZE TALONS
 
     public static WPI_TalonSRX MAIN_RIGHT_DRIVE;
@@ -15,8 +20,30 @@ class RobotMap {
     public static WPI_TalonSRX SUB_LEFT_DRIVE;
     public static WPI_TalonSRX SUB_RIGHT_DRIVE;
 
-    // INITIALIZE PDP
-    public static PowerDistributionPanel pdp;
+    ////////////////////////////////// ELEVATOR //////////////////////////////////////////
+
+    // INITIALIZE TALONS
+
+    public static WPI_TalonSRX ELEVATOR;
+
+    ///////////////////////////////////// SHOOTER //////////////////////////////////
+
+    // INIT TALONS
+
+    public static WPI_TalonSRX SHOOTER;
+
+    /////////////////////////////////////// YAW ///////////////////////////////////
+
+    // INIT TALONS
+
+    public static WPI_TalonSRX YAW;
+
+    ////////////////////////////////////// PITCH ////////////////////////////////////////
+
+    // INIT TALONS
+
+    public static WPI_TalonSRX PITCH;
+
 
     public static void init(){
 
@@ -58,7 +85,33 @@ class RobotMap {
         // SET A PAIR OF MOTORS AS FOLLOWERS FOR CONSISTENCY, AS THE MECHANISM DEPENDS ON TWO MOTORS
         SUB_RIGHT_DRIVE.follow(MAIN_RIGHT_DRIVE);
         SUB_LEFT_DRIVE.follow(MAIN_LEFT_DRIVE);
-    
 
+        ////////////////////////////////////////////////// ELEVATOR //////////////////////////////////////////////
+
+        ELEVATOR = new WPI_TalonSRX(Constants.ElevatorConstants.TALONSRX_ELEVATOR);
+        ELEVATOR.setNeutralMode(NeutralMode.Brake);
+        ELEVATOR.configOpenloopRamp(Constants.ElevatorConstants.RAMP, 20);
+        ELEVATOR.set(ControlMode.PercentOutput, 0);
+
+        ///////////////////////////////////////////////// SHOOTER ///////////////////////////////////////
+
+        SHOOTER = new WPI_TalonSRX(Constants.ShooterConstants.TALONSRX_SHOOTER);
+        SHOOTER.setNeutralMode(NeutralMode.Brake);
+        SHOOTER.configOpenloopRamp(Constants.ShooterConstants.RAMP, 20);
+        SHOOTER.set(ControlMode.PercentOutput, 0);
+
+        //////////////////////////////////////////////////// YAW ///////////////////////////////////////////
+
+        YAW = new WPI_TalonSRX(Constants.YawConstants.TALONSRX_YAW);
+        YAW.setNeutralMode(NeutralMode.Brake);
+        YAW.configOpenloopRamp(Constants.YawConstants.RAMP, 20);
+        YAW.set(ControlMode.PercentOutput, 0);
+
+        ////////////////////////////////////////////////// PITCH /////////////////////////////////////////////
+
+        PITCH = new WPI_TalonSRX(Constants.PitchConstants.TALONSRX_PITCH);
+        PITCH.setNeutralMode(NeutralMode.Brake);
+        PITCH.configOpenloopRamp(Constants.PitchConstants.RAMP, 20);
+        PITCH.set(ControlMode.PercentOutput, 0);
     }
 }

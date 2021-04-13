@@ -33,6 +33,47 @@ public final class Constants {
        
     }
 
+    public static final class ElevatorConstants {
+
+        // PORTS USED FOR THE ELEVATOR
+        public static final int TALONSRX_ELEVATOR = 4;
+
+        // RAMP
+        public static final double RAMP = 0.5;
+
+    }
+
+    public static final class ShooterConstants {
+
+        // PORTS USED FOR THE SHOOTER
+        public static final int TALONSRX_SHOOTER = 5;
+
+        // RAMP
+        public static final double RAMP = 0.5;
+
+    }
+
+    public static final class YawConstants {
+
+        // PORTS USED FOR THE YAW
+        public static final int TALONSRX_YAW = 6;
+
+        // RAMP
+        public static final double RAMP = 0.5;
+        
+    }
+
+    public static final class PitchConstants {
+
+        // PORTS USED FOR THE PITCH
+        public static final int TALONSRX_PITCH = 7;
+        
+        // RAMP
+        public static final double RAMP = 0.5;
+        
+
+    }
+
     public static final class OIConstants{
          // JOYSTICK PORTS
 
