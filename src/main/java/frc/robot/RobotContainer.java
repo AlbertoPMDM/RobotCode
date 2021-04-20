@@ -11,9 +11,12 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.robot.subsystems.Drive;
+import frc.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OIConstants;
+import frc.robot.commands.ElevatorDown;
+import frc.robot.commands.ElevatorUp;
 import frc.robot.commands.InvertDrive;
 
 /**
@@ -29,8 +32,14 @@ public class RobotContainer {
 
   private final Drive m_tankDrive = new Drive();
 
+  private final Elevator m_elevatorSubsystem = new Elevator();
+
   private final InvertDrive m_invertDrive = new InvertDrive(m_tankDrive);
 
+  private final ElevatorUp m_elevatorUp = new ElevatorUp(m_elevatorSubsystem);
+
+  private final ElevatorDown m_elevatorDown = new ElevatorDown(m_elevatorSubsystem);
+ 
   private XboxController m_xboxController = new XboxController(OIConstants.XBOX_CONTROLLER);
 
 
@@ -63,5 +72,9 @@ public class RobotContainer {
 
     // new JoystickButton(m_joystick, 1).whenPressed(command);
     new JoystickButton(m_xboxController, OIConstants.SWITCH_BUTTON).whenPressed(m_invertDrive);
+
+    new JoystickButton(m_xboxController, OIConstants.ELEVATOR_UP).whileHeld(m_elevatorUp, true);
+
+    new JoystickButton(m_xboxController, OIConstants.ELEVATOR_DOWN).whileHeld(m_elevatorDown, true);
   }
 }
