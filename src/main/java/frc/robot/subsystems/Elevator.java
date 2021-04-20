@@ -20,7 +20,8 @@ public class Elevator extends SubsystemBase{
     }
 
     public double readSensor(){
-        return m_elevatorSensor.getRangeMM();
+        System.out.println(m_elevatorSensor.getRangeInches());
+        return m_elevatorSensor.getRangeInches();
     }
 
     public void up(){
@@ -28,7 +29,7 @@ public class Elevator extends SubsystemBase{
             m_elevator.set(0.5);
         }
         else{
-            m_elevator.set(0.5);
+            m_elevator.set(0.0);
         }
     }
 
