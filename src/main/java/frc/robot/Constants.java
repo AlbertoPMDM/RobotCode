@@ -38,6 +38,9 @@ public final class Constants {
         // PORTS USED FOR THE ELEVATOR
         public static final int TALONSRX_ELEVATOR = 4;
 
+        //Dio ports for ultrasonic sensors
+        public static final int[] ULTRASONIC_ELEVATOR = {1,2};
+
         // RAMP
         public static final double RAMP = 0.5;
 
