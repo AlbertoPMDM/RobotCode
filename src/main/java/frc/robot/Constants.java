@@ -82,6 +82,12 @@ public final class Constants {
 
          public static final int XBOX_CONTROLLER = 0;
          public static final int SWITCH_BUTTON = 1;
+
+
+        // elevator buttons
+
+        public static final int ELEVATOR_UP = 3;
+        public static final int ELEVATOR_DOWN = 4;
          
     }
 
